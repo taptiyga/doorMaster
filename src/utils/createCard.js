@@ -12,6 +12,21 @@ export function createCard(type) {
     };
   }
 
+  if (type === "swing") {
+    return {
+      id: Date.now(),
+      type: "swing",
+      hingeType: "mortise",
+      hingeQuantity: 4,
+      lockType: "bathroom",
+      openingDepth: 70,
+      trimSides: 2,
+      trimSawLength: 0,
+      bolt: 1,
+      strikePlate: 1,
+      falseHandle: false,
+    };
+  }
   if (type === "slide") {
     return {
       id: Date.now(),
@@ -19,25 +34,6 @@ export function createCard(type) {
       corniceWidth: 0,
       handleQuantity: 0,
       addPortal: false,
-    };
-  }
-  if (type === "swing") {
-    return {
-      id: Date.now(),
-      type: "swing",
-
-      hingeType: "mortise",
-      hingeQuantity: 4,
-
-      lockType: "bathroom",
-
-      depth: 0,
-
-      trimSides: 2,
-
-      bolt: false,
-      strikePlate: false,
-      falseHandle: false,
     };
   }
 

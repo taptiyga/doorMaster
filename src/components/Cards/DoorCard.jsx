@@ -1,34 +1,47 @@
 import { CardLayout } from "./CardLayout";
 import { Field } from "./Field";
+import { RadioGroup } from "./RadioGroup";
 
 export function DoorCard({ card, price, onUpdate }) {
   return (
     <CardLayout title="Межкомнатная дверь" price={price}>
-      <Field label="Тип петель">
-        <select
-          value={card.hingeType}
-          onChange={(event) =>
-            onUpdate(card.id, "hingeType", event.target.value)
-          }
-        >
-          <option value="mortise">Врезные</option>
+      <RadioGroup
+        label="Тип петель"
+        name={`hingeType-${card.id}`}
+        value={card.hingeType}
+        options={[
+          {
+            value: "mortise",
+            label: "Врезные",
+          },
+          {
+            value: "overlay",
+            label: "Накладные",
+          },
+        ]}
+        onChange={(value) => onUpdate(card.id, "hingeType", value)}
+      />
 
-          <option value="overlay">Накладные</option>
-        </select>
-      </Field>
-
-      <Field label="Количество петель">
-        <select
-          value={card.hingeQuantity}
-          onChange={(event) =>
-            onUpdate(card.id, "hingeQuantity", event.target.value)
-          }
-        >
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-      </Field>
+      <RadioGroup
+        label="Количество петель"
+        name={`hingeQuantity-${card.id}`}
+        value={card.hingeQuantity}
+        options={[
+          {
+            value: "2",
+            label: "2",
+          },
+          {
+            value: "3",
+            label: "3",
+          },
+          {
+            value: "4",
+            label: "4",
+          },
+        ]}
+        onChange={(value) => onUpdate(card.id, "hingeQuantity", value)}
+      />
 
       <Field label="Тип замка">
         <select
@@ -45,7 +58,7 @@ export function DoorCard({ card, price, onUpdate }) {
         </select>
       </Field>
 
-      <Field label="Глубина проема">
+      <Field label="Глубина проема (мм)">
         <input
           type="number"
           min="0"
@@ -56,20 +69,28 @@ export function DoorCard({ card, price, onUpdate }) {
         />
       </Field>
 
-      <Field label="Наличник">
-        <select
-          value={card.trimSides}
-          onChange={(event) =>
-            onUpdate(card.id, "trimSides", event.target.value)
-          }
-        >
-          <option value="0">0 сторон</option>
-          <option value="1">1 сторона</option>
-          <option value="2">2 стороны</option>
-        </select>
-      </Field>
+      <RadioGroup
+        label="Наличник"
+        name={`trimSides-${card.id}`}
+        value={card.trimSides}
+        options={[
+          {
+            value: "0",
+            label: "0",
+          },
+          {
+            value: "1",
+            label: "1",
+          },
+          {
+            value: "2",
+            label: "2",
+          },
+        ]}
+        onChange={(value) => onUpdate(card.id, "trimSides", value)}
+      />
 
-      <Field label="Запил наличника">
+      <Field label="Пил наличника вдоль (метры)">
         <input
           type="number"
           min="0"
