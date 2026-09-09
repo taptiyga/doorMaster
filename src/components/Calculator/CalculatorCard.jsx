@@ -1,33 +1,38 @@
-import { DoorCard } from "./DoorCard";
-import { SwingCard } from "./SwingCard";
-import { SlideCard } from "./SlideCard";
-import { DoubleSlideCard } from "./DoubleSlideCard";
-import { PortalCard } from "./PortalCard";
-import { EntranceCard } from "./EntranceCard";
-import { AdditionalCard } from "./AdditionalCard";
+import { DoorCard } from "../Cards/DoorCard";
+import { SwingCard } from "../Cards/SwingCard";
+import { SlideCard } from "../Cards/SlideCard";
+import { DoubleSlideCard } from "../Cards/DoubleSlideCard";
+import { PortalCard } from "../Cards/PortalCard";
+import { EntranceCard } from "../Cards/EntranceCard";
+import { AdditionalCard } from "../Cards/AdditionalCard";
 
-export function CalculatorCard({ card }) {
+export function CalculatorCard({ card, price, onUpdate }) {
   if (card.type === "door") {
-    return <DoorCard card={card} />;
+    return <DoorCard card={card} price={price} onUpdate={onUpdate} />;
   }
 
   if (card.type === "swing") {
-    return <SwingCard card={card} />;
+    return <SwingCard card={card} price={price} onUpdate={onUpdate} />;
   }
+
   if (card.type === "slide") {
-    return <SlideCard card={card} />;
+    return <SlideCard card={card} price={price} onUpdate={onUpdate} />;
   }
+
   if (card.type === "doubleSlide") {
-    return <DoubleSlideCard card={card} />;
+    return <DoubleSlideCard card={card} price={price} onUpdate={onUpdate} />;
   }
+
   if (card.type === "portal") {
-    return <PortalCard card={card} />;
+    return <PortalCard card={card} price={price} onUpdate={onUpdate} />;
   }
+
   if (card.type === "entrance") {
-    return <EntranceCard card={card} />;
+    return <EntranceCard card={card} price={price} onUpdate={onUpdate} />;
   }
+
   if (card.type === "additional") {
-    return <AdditionalCard card={card} />;
+    return <AdditionalCard card={card} price={price} onUpdate={onUpdate} />;
   }
 
   return null;

@@ -4,10 +4,11 @@ export function createCard(type) {
       id: Date.now(),
       type: "door",
       hingeType: "mortise",
-      hingeQuantity: 3,
+      hingeQuantity: 2,
       lockType: "bathroom",
-      depth: 0,
+      openingDepth: 70,
       trimSides: 2,
+      trimSawLength: 0,
     };
   }
 
@@ -26,7 +27,7 @@ export function createCard(type) {
       type: "swing",
 
       hingeType: "mortise",
-      hingeQuantity: 3,
+      hingeQuantity: 4,
 
       lockType: "bathroom",
 

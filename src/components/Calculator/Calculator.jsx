@@ -1,26 +1,57 @@
 import { useState } from "react";
 import { CalculatorForm } from "./CalculatorForm";
-import { CalculatorList } from "./CalculatorList";
-import { createCard } from "../../data/createCard";
+import { CalculatorCard } from "./CalculatorCard";
+import { calculateCardPrice } from "../../calculations/calculateCardPrice";
+import { BASE_PRICE } from "../../constants/calculator";
+import { createCard } from "../../utils/createCard";
+import styles from "./Calculator.module.css";
 
 export function Calculator() {
   const [cards, setCards] = useState([]);
 
-function addCard(type) {
-  const newCard = createCard(type);
+  function addCard(type) {
+    const newCard = createCard(type);
 
-  if (!newCard) return;
+    if (!newCard) {
+      return;
+    }
 
-  setCards((prev) => [newCard, ...prev]);
-}
+    setCards((prev) => [newCard, ...prev]);
+  }
+
+  function updateCard(id, field, value) {
+    setCards((prev) =>
+      prev.map((card) =>
+        card.id === id
+          ? {
+              ...card,
+              [field]: value,
+            }
+          : card,
+      ),
+    );
+  }
 
   return (
-    <section>
-      <h2>Рассчитайте стоимость</h2>
+    <section className={styles.calculator}>
+      <h2 className={styles.title}>Калькулятор стоимости</h2>
 
       <CalculatorForm onAdd={addCard} />
 
-      <CalculatorList cards={cards} />
+      <div className={styles.cards}>
+        {cards.map((card) => {
+          const price = calculateCardPrice(card, BASE_PRICE);
+
+          return (
+            <CalculatorCard
+              key={card.id}
+              card={card}
+              price={price}
+              onUpdate={updateCard}
+            />
+          );
+        })}
+      </div>
     </section>
   );
 }

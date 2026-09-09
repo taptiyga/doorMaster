@@ -1,0 +1,63 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  min-width: 0;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+
+  color: #4b5563;
+
+  overflow-wrap: anywhere;
+}
+
+.field select,
+.field input {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+
+  min-height: 36px;
+
+  padding: 0 7px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.field select:focus,
+.field input:focus {
+  border-color: #111827;
+
+  box-shadow:
+    0 0 0 2px rgba(17, 24, 39, 0.08);
+}
+
+@media (max-width: 768px) {
+  .label {
+    font-size: 13px;
+  }
+
+  .field select,
+  .field input {
+    min-height: 38px;
+    font-size: 14px;
+  }
+}
