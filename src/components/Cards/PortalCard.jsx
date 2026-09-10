@@ -1,7 +1,10 @@
-export function PortalCard({ card }) {
+import { CardLayout } from "./CardLayout";
+import { PortalFields } from "./PortalFields";
+
+export function PortalCard({ card, price, onUpdate }) {
   return (
-    <article>
-      <h3>Портал</h3>
-    </article>
+    <CardLayout title="Обшивка проема" price={price}>
+      <PortalFields card={card} onUpdate={onUpdate} />
+    </CardLayout>
   );
 }

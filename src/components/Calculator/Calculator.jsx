@@ -8,7 +8,9 @@ import styles from "./Calculator.module.css";
 
 export function Calculator() {
   const [cards, setCards] = useState([]);
-
+  const totalPrice = cards.reduce((total, card) => {
+    return total + calculateCardPrice(card, BASE_PRICE);
+  }, 0);
   function addCard(type) {
     const newCard = createCard(type);
 
@@ -51,6 +53,9 @@ export function Calculator() {
             />
           );
         })}
+      </div>
+      <div className={styles.total}>
+        Итого: {totalPrice.toLocaleString("ru-RU")} ₽
       </div>
     </section>
   );

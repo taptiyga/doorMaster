@@ -34,6 +34,10 @@ export function createCard(type) {
       corniceWidth: 0,
       handleQuantity: 0,
       addPortal: false,
+
+      openingDepth: 50,
+      trimSides: 2,
+      trimSawLength: 0,
     };
   }
 
@@ -41,40 +45,42 @@ export function createCard(type) {
     return {
       id: Date.now(),
       type: "doubleSlide",
-
       corniceWidth: 0,
-
       handleQuantity: 0,
-
       addPortal: false,
+
+      openingDepth: 50,
+      trimSides: 2,
+      trimSawLength: 0,
     };
   }
   if (type === "portal") {
     return {
       id: Date.now(),
       type: "portal",
-
-      depth: 0,
-
+      openingDepth: 0,
       trimSides: 2,
+      trimSawLength: 0,
     };
   }
   if (type === "entrance") {
     return {
       id: Date.now(),
       type: "entrance",
-
-      depth: 0,
-
-      addTrim: true,
+      openingDepth: 0,
+      addTrim: 0,
+      trimSawLength: 0,
     };
   }
-  if (type === "additional") {
-    return {
-      id: Date.now(),
-      type: "additional",
-    };
-  }
+if (type === "additional") {
+  return {
+    id: Date.now(),
+    type: "additional",
+    dismantlingQuantity: 0,
+    skirtingQuantity: 0,
+    narrowingQuantity: 0,
+  };
+}
 
   return null;
 }

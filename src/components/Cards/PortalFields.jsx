@@ -1,10 +1,9 @@
-import { CardLayout } from "./CardLayout";
 import { Field } from "./Field";
 import { RadioGroup } from "./RadioGroup";
 
-export function EntranceCard({ card, price, onUpdate }) {
+export function PortalFields({ card, onUpdate }) {
   return (
-    <CardLayout title="Обшивка входной двери" price={price}>
+    <>
       <Field label="Глубина проема (мм)">
         <input
           type="number"
@@ -18,13 +17,14 @@ export function EntranceCard({ card, price, onUpdate }) {
 
       <RadioGroup
         label="Наличник"
-        name={`addTrim-${card.id}`}
-        value={card.addTrim}
+        name={`trimSides-${card.id}`}
+        value={card.trimSides}
         options={[
           { value: "0", label: "0" },
           { value: "1", label: "1" },
+          { value: "2", label: "2" },
         ]}
-        onChange={(value) => onUpdate(card.id, "addTrim", value)}
+        onChange={(value) => onUpdate(card.id, "trimSides", value)}
       />
 
       <Field label="Пил наличника вдоль (метры)">
@@ -38,6 +38,6 @@ export function EntranceCard({ card, price, onUpdate }) {
           }
         />
       </Field>
-    </CardLayout>
+    </>
   );
 }
