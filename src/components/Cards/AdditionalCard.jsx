@@ -1,9 +1,13 @@
 import { CardLayout } from "./CardLayout";
 import { Field } from "./Field";
 
-export function AdditionalCard({ card, price, onUpdate }) {
+export function AdditionalCard({ card, price, onUpdate, onRemove }) {
   return (
-    <CardLayout title="Дополнительные работы" price={price}>
+    <CardLayout
+      title="Дополнительные работы"
+      price={price}
+      onRemove={() => onRemove(card.id)}
+    >
       <Field label="Демонтаж (количество полотен)">
         <input
           type="number"

@@ -2,9 +2,13 @@ import { CardLayout } from "./CardLayout";
 import { Field } from "./Field";
 import { RadioGroup } from "./RadioGroup";
 
-export function EntranceCard({ card, price, onUpdate }) {
+export function EntranceCard({ card, price, onUpdate, onRemove }) {
   return (
-    <CardLayout title="Обшивка входной двери" price={price}>
+    <CardLayout
+      title="Обшивка входной двери"
+      price={price}
+      onRemove={() => onRemove(card.id)}
+    >
       <Field label="Глубина проема (мм)">
         <input
           type="number"

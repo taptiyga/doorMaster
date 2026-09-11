@@ -2,9 +2,13 @@ import { CardLayout } from "./CardLayout";
 import { Field } from "./Field";
 import { RadioGroup } from "./RadioGroup";
 
-export function DoorCard({ card, price, onUpdate }) {
+export function DoorCard({ card, price, onUpdate, onRemove }) {
   return (
-    <CardLayout title="Межкомнатная дверь" price={price}>
+    <CardLayout
+      title="Межкомнатная дверь"
+      price={price}
+      onRemove={() => onRemove(card.id)}
+    >
       <RadioGroup
         label="Тип петель"
         name={`hingeType-${card.id}`}

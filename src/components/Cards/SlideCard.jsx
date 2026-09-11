@@ -3,9 +3,13 @@ import { Field } from "./Field";
 import { Checkbox } from "./Checkbox";
 import { PortalFields } from "./PortalFields";
 
-export function SlideCard({ card, price, onUpdate }) {
+export function SlideCard({ card, price, onUpdate, onRemove }) {
   return (
-    <CardLayout title="Откатная дверь" price={price}>
+    <CardLayout
+      title="Откатная дверь"
+      price={price}
+      onRemove={() => onRemove(card.id)}
+    >
       <Field label="Ширина полотна двери (мм)">
         <input
           type="number"

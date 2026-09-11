@@ -4,9 +4,13 @@ import { RadioGroup } from "./RadioGroup";
 import { Checkbox } from "./Checkbox";
 import { PortalFields } from "./PortalFields";
 
-export function DoubleSlideCard({ card, price, onUpdate }) {
+export function DoubleSlideCard({ card, price, onUpdate, onRemove }) {
   return (
-    <CardLayout title="Двойная откатная дверь" price={price}>
+    <CardLayout
+      title="Двойная откатная дверь"
+      price={price}
+      onRemove={() => onRemove(card.id)}
+    >
       <Field label="Ширина полотна двери (мм)">
         <input
           type="number"

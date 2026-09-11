@@ -3,9 +3,13 @@ import { Field } from "./Field";
 import { RadioGroup } from "./RadioGroup";
 import { Checkbox } from "./Checkbox";
 
-export function SwingCard({ card, price, onUpdate }) {
+export function SwingCard({ card, price, onUpdate, onRemove }) {
   return (
-    <CardLayout title="Распашная дверь" price={price}>
+    <CardLayout
+      title="Распашная дверь"
+      price={price}
+      onRemove={() => onRemove(card.id)}
+    >
       <RadioGroup
         label="Тип петель"
         name={`hingeType-${card.id}`}
