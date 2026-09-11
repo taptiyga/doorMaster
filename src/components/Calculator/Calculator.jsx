@@ -60,7 +60,7 @@ function clearCards() {
       <CalculatorForm
         onAdd={addCard}
         onClear={clearCards}
-        onTotal={totalPrice}
+        totalPrice={totalPrice}
       />
 
       <div className={styles.cards}>

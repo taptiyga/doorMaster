@@ -49,12 +49,6 @@
     font-size: 26px;
   }
 
-  .total {
-    margin-bottom: 22px;
-    padding: 10px 20px;
-    font-size: 18px;
-  }
-
   .cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
@@ -69,13 +63,6 @@
   .title {
     margin-bottom: 18px;
     font-size: 23px;
-  }
-
-  .total {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 18px;
-    font-size: 18px;
   }
 
   .cards {

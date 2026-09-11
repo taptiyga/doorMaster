@@ -7,7 +7,7 @@
 .label {
   font-size: 12px;
   font-weight: 500;
-  color: #4b5563;
+  color: #69727a;
 }
 
 .options {
@@ -21,12 +21,10 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-
   cursor: pointer;
-
   font-size: 13px;
   line-height: 1.2;
-
+  color: #1d2b39;
   user-select: none;
 }
 
@@ -39,23 +37,25 @@
 .radio {
   width: 14px;
   height: 14px;
-
-  border: 2px solid #9ca3af;
+  border: 2px solid #d8d2c9;
   border-radius: 50%;
-
   box-sizing: border-box;
-
   transition:
     border-color 0.2s,
-    background-color 0.2s;
+    background-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .option input:checked + .radio {
-  border-color: #111827;
-  background-color: #111827;
+  border-color: #b28a57;
+  background-color: #b28a57;
   box-shadow: inset 0 0 0 3px #ffffff;
 }
 
 .option:hover .radio {
-  border-color: #111827;
+  border-color: #b28a57;
+}
+
+.option:hover {
+  color: #1d2b39;
 }

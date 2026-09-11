@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./CalculatorForm.module.css";
 
-export function CalculatorForm({ onAdd, onClear, onTotal }) {
+export function CalculatorForm({ onAdd, onClear, totalPrice }) {
   const [selectedType, setSelectedType] = useState("door");
 
   function handleAdd() {
@@ -28,7 +28,7 @@ export function CalculatorForm({ onAdd, onClear, onTotal }) {
         Добавить
       </button>
       <div className={styles.total}>
-        Итого: {onTotal.toLocaleString("ru-RU")} ₽
+        Итого: {totalPrice.toLocaleString("ru-RU")} ₽
       </div>
 
       <button type="button" className={styles.clearButton} onClick={onClear}>
